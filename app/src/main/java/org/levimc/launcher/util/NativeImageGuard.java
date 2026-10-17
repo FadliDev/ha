@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class NativeImageGuard {
     public static final String TOKEN = "img_v5";
     private static final ConcurrentHashMap<String, FileState> CLEAN_FILES = new ConcurrentHashMap<>();
+    public static volatile String lastFailure;
 
     private NativeImageGuard() {
     }
@@ -43,6 +44,7 @@ public final class NativeImageGuard {
             return false;
         }
         if (!NativeBridgeHelper.ensureGxCoreLoaded()) {
+            lastFailure = "gxcore failed to load: " + NativeBridgeHelper.lastLoadError;
             return false;
         }
         if (ignoreMarker) {
@@ -65,6 +67,7 @@ public final class NativeImageGuard {
 
             if (!NativeBridgeHelper.rewriteImage(inputPath(soFile.getAbsolutePath()), tempFile.getAbsolutePath())) {
                 tempFile.delete();
+                lastFailure = "rewriteImage returned false for " + soFile.getName();
                 return false;
             }
 
@@ -76,6 +79,7 @@ public final class NativeImageGuard {
         } catch (Exception e) {
             CLEAN_FILES.remove(soFile.getAbsolutePath());
             clearCleanMarker(soFile);
+            lastFailure = "exception while processing " + soFile.getName() + ": " + e;
             return false;
         }
     }

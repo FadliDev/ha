@@ -259,6 +259,7 @@ class GamePackageManager private constructor(
                     report("Copied $lib from native lib directory")
                     if (!processNativeImage(dstFile, true)) {
                         dstFile.delete()
+                        report("Prepare failed for $lib: ${NativeImageGuard.lastFailure}")
                         throw IOException("Failed to prepare native library: ${dstFile.name}")
                     }
                     logFileOperation("Copied", lib)
@@ -287,6 +288,9 @@ class GamePackageManager private constructor(
                 extractableLibs.forEach { lib ->
                     val entry = zip.getEntry("$abiPath/$lib")
                     if (entry == null) {
+                        if (requiredLibs.contains(lib)) {
+                            report("Not found in ${apkFile.name}: $abiPath/$lib")
+                        }
                         return@forEach
                     }
                     val output = File(outputDir, lib)
@@ -296,12 +300,14 @@ class GamePackageManager private constructor(
                     report("Extracted $lib from ${apkFile.name} for $abi")
                     if (!processNativeImage(output, true)) {
                         output.delete()
+                        report("Prepare failed for $lib: ${NativeImageGuard.lastFailure}")
                         throw IOException("Failed to prepare native library: ${output.name}")
                     }
                 }
             }
         } catch (e: Exception) {
             Log.w(TAG, "Failed to extract libraries from $apkPath: ${e.message}")
+            report("Extraction error in ${apkFile.name}: ${e.message}")
         }
     }
 
