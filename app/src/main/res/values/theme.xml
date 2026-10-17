@@ -14,9 +14,9 @@
         <item name="android:colorBackground">@color/background</item>
         <item name="colorOnBackground">@color/on_background</item>
         <item name="colorOutline">@color/outline</item>
-        <item name="shapeAppearanceSmallComponent">@style/Liquid.Shape.Small</item>
-        <item name="shapeAppearanceMediumComponent">@style/Liquid.Shape.Medium</item>
-        <item name="shapeAppearanceLargeComponent">@style/Liquid.Shape.Large</item>
+        <item name="shapeAppearanceSmallComponent">@style/LiquidShapeSmall</item>
+        <item name="shapeAppearanceMediumComponent">@style/LiquidShapeMedium</item>
+        <item name="shapeAppearanceLargeComponent">@style/LiquidShapeLarge</item>
 
         <item name="android:windowBackground">@color/background</item>
         <item name="android:windowDisablePreview">true</item>
