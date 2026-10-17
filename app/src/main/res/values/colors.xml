@@ -1,0 +1,33 @@
+<resources>
+    <color name="primary">#0284C7</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="secondary">#6366F1</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="primary_container">#DFF3FF</color>
+    <color name="on_primary_container">#075985</color>
+    <color name="tertiary">#0D9488</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="external_mod_ad">#E65100</color>
+    <color name="error">#E5484D</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="background">#EEF5FC</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#E3EEF9</color>
+    <color name="on_background">#0B1426</color>
+    <color name="on_surface">#0B1426</color>
+    <color name="on_surface_variant">#075985</color>
+    <color name="outline">#CBDAEA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider">#D7E3F0</color>
+    <color name="scrim">#66000000</color>
+    <color name="glow_green">#38D6FF</color>
+    <color name="glow_cyan">#5EEAD4</color>
+    <color name="abi_label_text">#000000</color>
+    <color name="accent_text">#0369A1</color>
+    <color name="text_primary">#0B1426</color>
+    <color name="text_secondary">#5B6B82</color>
+    <color name="qa_icon_color">#0B1426</color>
+    <color name="ic_launcher_adaptive_back">#0A1424</color>
+    <color name="liquid_grad_start">#38D6FF</color>
+    <color name="liquid_grad_end">#7C83FF</color>
+</resources>
