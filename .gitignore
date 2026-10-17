@@ -97,3 +97,7 @@ MinecraftAuth
 commit_msg.txt
 *.patch
 !/app/src/main/cpp/worldtools/vendor/zstd/build/
+
+# Liquid Client: zstd CMake build files live in a folder named "build" and must be committed
+!app/src/main/cpp/worldtools/vendor/zstd/build/
+!app/src/main/cpp/worldtools/vendor/zstd/build/**
